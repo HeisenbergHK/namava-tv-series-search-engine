@@ -99,33 +99,47 @@ body {
   transition: transform 0.5s;
 }
 
-/* .result-item:hover {
-  transform: scale(1.05);
-  transition: transform 0.5s;
-} */
-
-.result-item img {
+.poster-el {
   width: 100%;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
 }
 
-/* .result-item img:hover {
-  
-} */
-
-.result-item:has(img:hover) {
+.result-item:has(.poster-el:hover) {
   transform: scale(1.05);
   transition: transform 0.5s;
 }
 
-/* .result-item:hover img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
+.rating-div {
+  display: flex; /* row layout */
+  justify-content: center; /* center the children together */
+  align-items: center; /* vertically center text & images */
+  gap: 30px; /* space between star and imdb */
+  margin-top: 5px; /* optional spacing from series name */
+}
 
-  box-shadow: 0px 0px 10px #73c9ff;
-  transition: box-shadow 0.5s;
-} */
+.star-el span {
+  padding: 5px 0px 0px 0px;
+}
+
+.imdb-el span {
+  padding: 5px 0px 0px 0px;
+}
+
+.star-el,
+.imdb-el {
+  display: inline-flex; /* align image and number horizontally */
+  align-items: center; /* vertically center image + number */
+  gap: 5px; /* small space between image and number */
+}
+
+.star-fav {
+  width: 20px; /* fixed size, better than % for small icons */
+  height: auto;
+}
+
+.imdb-fav {
+  width: 28px; /* fixed size, better than % for small icons */
+  height: auto;
+}

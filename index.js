@@ -18,20 +18,32 @@ async function logToConsole(keyword) {
 
 async function renderResults(keyword) {
   const data = await fetchData(keyword);
-  // console.log(data);
+  console.log(data);
   let resultHTML = "";
 
   for (let i = 0; i < data.length; i++) {
     // resultHTML += `<div class="result-item">${data[i].series_name}</div>`;
     resultHTML += `<div class="result-item">
-                    <img src="${data[i].series_image_url}" alt="${data[i].series_name}">
+                    <img class="poster-el" src="${data[i].series_image_url}" alt="${data[i].series_name}">
                     <span>${data[i].series_name}</span>
+
+                    <div class="rating-div">
+                      <div class="star-el">
+                        <img class="star-fav" src="images/star.png" alt="star-el" />
+                        <span>${data[i].hit}</span>
+                      </div>
+                      <div class="imdb-el">
+                        <img class="imdb-fav" src="images/imdb.png" alt="star-el" />
+                        <span>${data[i].imdb}</span>
+                      </div>
+                    </div>
+
                   </div>`;
   }
 
   resultList.innerHTML = resultHTML;
 
-  console.log(resultHTML);
+  // console.log(resultHTML);
 }
 
 inputField.addEventListener("input", function () {
