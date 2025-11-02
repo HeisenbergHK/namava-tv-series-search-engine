@@ -31,6 +31,12 @@ def search_top_5(prefix_keyword):
         for item in sorted_list:
             title = item["series_name"]
             if title not in seen:
+
+                # if a cell in imdb is empty, it becomes NaN (a Python float('nan'))
+                # So Changing imdb value to null instead of Nan for a valid json response in the front
+                if isinstance(item["imdb"], float):
+                    item["imdb"] = None
+
                 seen.add(title)
                 result.append(item)
 
