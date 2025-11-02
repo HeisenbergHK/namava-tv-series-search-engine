@@ -30,8 +30,8 @@ async def main():
         async with aiofiles.open(
             file_name, mode, newline="", encoding="utf-8"
         ) as async_file:
-            if not file_exist:
-                await async_file.write("series_id,series_name,hit,imdb\n")
+            # if not file_exist:
+            await async_file.write("series_id,series_name,hit,imdb\n")
 
             while True:
                 url = f"https://www.namava.ir/api/v1.0/medias/latest-series?pi={pi}&ps={ps}"
